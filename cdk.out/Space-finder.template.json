@@ -60,7 +60,7 @@
     "aws:cdk:path": "Space-finder/SpaceApi/Account"
    }
   },
-  "SpaceApiDeploymentA2B9E765554aec58dc5d1be79899ce4101601e9d": {
+  "SpaceApiDeploymentA2B9E765a76718c27102407fd5bddfba5030fa29": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "RestApiId": {
@@ -83,7 +83,7 @@
      "Ref": "SpaceApi1B373D2B"
     },
     "DeploymentId": {
-     "Ref": "SpaceApiDeploymentA2B9E765554aec58dc5d1be79899ce4101601e9d"
+     "Ref": "SpaceApiDeploymentA2B9E765a76718c27102407fd5bddfba5030fa29"
     },
     "StageName": "prod"
    },
@@ -118,7 +118,7 @@
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
      "Fn::GetAtt": [
-      "helloLambda79DCE371",
+      "helloLambdaNodeJs14E63891",
       "Arn"
      ]
     },
@@ -162,7 +162,7 @@
     "Action": "lambda:InvokeFunction",
     "FunctionName": {
      "Fn::GetAtt": [
-      "helloLambda79DCE371",
+      "helloLambdaNodeJs14E63891",
       "Arn"
      ]
     },
@@ -225,7 +225,7 @@
         ":lambda:path/2015-03-31/functions/",
         {
          "Fn::GetAtt": [
-          "helloLambda79DCE371",
+          "helloLambdaNodeJs14E63891",
           "Arn"
          ]
         },
@@ -264,68 +264,6 @@
    "DeletionPolicy": "Retain",
    "Metadata": {
     "aws:cdk:path": "Space-finder/SpacesTable/Resource"
-   }
-  },
-  "helloLambdaServiceRoleBB046714": {
-   "Type": "AWS::IAM::Role",
-   "Properties": {
-    "AssumeRolePolicyDocument": {
-     "Statement": [
-      {
-       "Action": "sts:AssumeRole",
-       "Effect": "Allow",
-       "Principal": {
-        "Service": "lambda.amazonaws.com"
-       }
-      }
-     ],
-     "Version": "2012-10-17"
-    },
-    "ManagedPolicyArns": [
-     {
-      "Fn::Join": [
-       "",
-       [
-        "arn:",
-        {
-         "Ref": "AWS::Partition"
-        },
-        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-       ]
-      ]
-     }
-    ]
-   },
-   "Metadata": {
-    "aws:cdk:path": "Space-finder/helloLambda/ServiceRole/Resource"
-   }
-  },
-  "helloLambda79DCE371": {
-   "Type": "AWS::Lambda::Function",
-   "Properties": {
-    "Code": {
-     "S3Bucket": {
-      "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
-     },
-     "S3Key": "c6152808851e9195f9801abc668f82b48b68bb73c2c1acc3a5ddab598711e161.zip"
-    },
-    "Role": {
-     "Fn::GetAtt": [
-      "helloLambdaServiceRoleBB046714",
-      "Arn"
-     ]
-    },
-    "Handler": "hello.main",
-    "Runtime": "nodejs16.x"
-   },
-   "DependsOn": [
-    "helloLambdaServiceRoleBB046714"
-   ],
-   "Metadata": {
-    "aws:cdk:path": "Space-finder/helloLambda/Resource",
-    "aws:asset:path": "asset.c6152808851e9195f9801abc668f82b48b68bb73c2c1acc3a5ddab598711e161",
-    "aws:asset:is-bundled": false,
-    "aws:asset:property": "Code"
    }
   },
   "helloLambdaNodeJsServiceRole17C143C3": {
@@ -369,7 +307,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "84b0431e4cf838bd9d44ee2fb1e744983906c67ff09337e8c816e4f829da8df1.zip"
+     "S3Key": "292412aa716340467b03ce8a118529ace8ccb0092b7af65764b2cdab85c1d7f2.zip"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -390,7 +328,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "Space-finder/helloLambdaNodeJs/Resource",
-    "aws:asset:path": "asset.84b0431e4cf838bd9d44ee2fb1e744983906c67ff09337e8c816e4f829da8df1",
+    "aws:asset:path": "asset.292412aa716340467b03ce8a118529ace8ccb0092b7af65764b2cdab85c1d7f2",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
@@ -398,7 +336,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQT0+EMBDFP8veyyhr1DO7xpt/snonQzuyBdoS2rohhO/uQDWsp/ebl/ZNX/ewf4TbHV58JlWbdbqC6SOgbAVb5YS9rjHQBUeYTuRD0Wtx/LJXWEjpog3iifrOjYYY2b2aOK2mxUvAV10cJB3Qb8NvZuIXCmenFivRLDQaXu+6dI51Fh2aSiFMbLzTYLT32lnxHK0MC7D9x7NQo0XjFDf7xCqFrDALf1ei9xQ8FIvwDIcoWwrr69KO0jpFjYfXVbZUTnmLoY9ha7GGLDW1rf9VYj46q3S6uQRC42++8wfI7yHfNV7rbOBf1IbglPQHzqJEFJkBAAA="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WQy07DMBBFv6V715AiYJ0WseOhwj6a2ENwEttRxqaKovw745iqZXXPXM/TO7l7lLcbONFW6W7bm1rOHwFUJ9iqZhhMAwFPMMn5iBTKwYjDl7vCUikfXRBPOPR+ssjI7lXE3RpMXgYu9XFUuAe6BH89M79g+PY6WZkWYcDyeN/nPNZF9GBrDXJm4x1Ha4iMd+n5OToVmBehJwfWaz7oE+pcu8K5uHJeY0vydZVznaC7CogwkCyTcCz3UXUY0sZL6vIWwxDDZfk1L11nXPPvEuaDd9rkfdI42dLNT/Egi3tZbFoyZjvy5xmL8pj1FwSgdQmQAQAA"
    },
    "Metadata": {
     "aws:cdk:path": "Space-finder/CDKMetadata/Default"

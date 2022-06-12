@@ -15,11 +15,11 @@ export class SpaceStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props);
 
-    const helloLambda = new LambdaFunction(this, 'helloLambda', {
-      runtime: Runtime.NODEJS_16_X,
-      code: Code.fromAsset(join(__dirname, '..', 'services', 'hello')),
-      handler: 'hello.main',
-    });
+    // const helloLambda = new LambdaFunction(this, 'helloLambda', {
+    //   runtime: Runtime.NODEJS_16_X,
+    //   code: Code.fromAsset(join(__dirname, '..', 'services', 'hello')),
+    //   handler: 'hello.main',
+    // });
 
     const helloLambdaNodeJs = new NodejsFunction(this, 'helloLambdaNodeJs', {
       entry: join(__dirname, '..', 'services', 'node-lambda', 'hello.ts'),
@@ -27,7 +27,7 @@ export class SpaceStack extends Stack {
     });
 
     // Hello Api lambda integration:
-    const helloLambdaIntegration = new LambdaIntegration(helloLambda);
+    const helloLambdaIntegration = new LambdaIntegration(helloLambdaNodeJs);
     const helloLambdaResource = this.api.root.addResource('hello');
     helloLambdaResource.addMethod('GET', helloLambdaIntegration);
   }
