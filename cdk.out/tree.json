@@ -528,6 +528,118 @@
               "version": "2.27.0"
             }
           },
+          "helloLambdaWebpack": {
+            "id": "helloLambdaWebpack",
+            "path": "Space-finder/helloLambdaWebpack",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "Space-finder/helloLambdaWebpack/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "Space-finder/helloLambdaWebpack/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.27.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.27.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "Space-finder/helloLambdaWebpack/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "Space-finder/helloLambdaWebpack/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.27.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "Space-finder/helloLambdaWebpack/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.27.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.27.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "Space-finder/helloLambdaWebpack/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                      },
+                      "s3Key": "87724a28e01d80fd32cd7b6057d866b5b57f7e83ef5f985ba984eea77ab579b6.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "helloLambdaWebpackServiceRole0688A60B",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "nodeHelloLambda.handler",
+                    "runtime": "nodejs16.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.27.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.27.0"
+            }
+          },
           "helloLambdaNodeJs": {
             "id": "helloLambdaNodeJs",
             "path": "Space-finder/helloLambdaNodeJs",

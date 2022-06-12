@@ -16,6 +16,7 @@ const config: Configuration = {
           loader: 'ts-loader',
           options: {
             // pass special tsconfig file
+            configFile: 'tsconfig.webpack.json',
           },
         },
       },
