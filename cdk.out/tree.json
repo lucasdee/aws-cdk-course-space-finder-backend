@@ -725,6 +725,28 @@
                       {
                         "attributeName": "spaceId",
                         "attributeType": "S"
+                      },
+                      {
+                        "attributeName": "location",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "globalSecondaryIndexes": [
+                      {
+                        "indexName": "location",
+                        "keySchema": [
+                          {
+                            "attributeName": "location",
+                            "keyType": "HASH"
+                          }
+                        ],
+                        "projection": {
+                          "projectionType": "ALL"
+                        },
+                        "provisionedThroughput": {
+                          "readCapacityUnits": 5,
+                          "writeCapacityUnits": 5
+                        }
                       }
                     ],
                     "provisionedThroughput": {
@@ -829,7 +851,18 @@
                                       ]
                                     },
                                     {
-                                      "Ref": "AWS::NoValue"
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "SpacesTable8A997355",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/index/*"
+                                        ]
+                                      ]
                                     }
                                   ]
                                 }
@@ -1007,7 +1040,18 @@
                                       ]
                                     },
                                     {
-                                      "Ref": "AWS::NoValue"
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "SpacesTable8A997355",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/index/*"
+                                        ]
+                                      ]
                                     }
                                   ]
                                 }
@@ -1075,7 +1119,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "28bfbec41823524ad56aea22f91df7ac65d2974ca96d5f5f885c993fd462a26b.zip"
+                      "s3Key": "e3e93a31455c77eafb95bb0cc0fcb768863329f32bb1eee17ba8e254aaaf4bb3.zip"
                     },
                     "role": {
                       "Fn::GetAtt": [
