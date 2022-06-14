@@ -911,7 +911,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "641ec79964a429ea02acfb9787b914a95b93fe46270dea2ad3daf40dd0520c13.zip"
+     "S3Key": "a2c478ad5deb4cb1b83573665f9daca986ff4f426a577d0afa039f9537c49f25.zip"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -936,7 +936,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "Space-finder/SpacesTable-Create/Resource",
-    "aws:asset:path": "asset.641ec79964a429ea02acfb9787b914a95b93fe46270dea2ad3daf40dd0520c13",
+    "aws:asset:path": "asset.a2c478ad5deb4cb1b83573665f9daca986ff4f426a577d0afa039f9537c49f25",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
