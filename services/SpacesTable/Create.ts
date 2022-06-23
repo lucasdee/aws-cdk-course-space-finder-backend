@@ -1,6 +1,6 @@
 import { DynamoDB } from 'aws-sdk';
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
-import { v4 } from 'uuid';
+import { generateRandomId, getEventBody } from '../Shared/Utils';
 import { validateAsSpaceEntry, MissingFieldError } from '../Shared/InputValidator';
 
 const TABLE_NAME = process.env.TABLE_NAME;
@@ -14,8 +14,8 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
   };
 
   try {
-    const item = typeof event.body == 'object' ? event.body : JSON.parse(event.body);
-    item.spaceId = v4();
+    const item = getEventBody(event);
+    item.spaceId = generateRandomId();
 
     validateAsSpaceEntry(item);
 
