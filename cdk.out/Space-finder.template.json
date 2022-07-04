@@ -1616,6 +1616,64 @@
     "aws:cdk:path": "Space-finder/admins"
    }
   },
+  "spacesphotos2389D37E": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketName": {
+     "Fn::Join": [
+      "",
+      [
+       "spaces-photos-",
+       {
+        "Fn::Select": [
+         4,
+         {
+          "Fn::Split": [
+           "-",
+           {
+            "Fn::Select": [
+             2,
+             {
+              "Fn::Split": [
+               "/",
+               {
+                "Ref": "AWS::StackId"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     ]
+    },
+    "CorsConfiguration": {
+     "CorsRules": [
+      {
+       "AllowedHeaders": [
+        "*"
+       ],
+       "AllowedMethods": [
+        "HEAD",
+        "GET",
+        "PUT"
+       ],
+       "AllowedOrigins": [
+        "*"
+       ]
+      }
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "Space-finder/spaces-photos/Resource"
+   }
+  },
   "helloLambdaNodeJsServiceRole17C143C3": {
    "Type": "AWS::IAM::Role",
    "Properties": {
@@ -1711,7 +1769,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WRT0/DMAzFP8vuXWBDwLkbAnEApgHnKUtC5y2JqzhhKlW/O0mz7g+c/HtPsZVnT9n0nl2P+J7GQu7GGtasffdc7IporVpeQ8W92vOGtUtFvqyhmH/ZMyyFwGB98aBqjY1REaN7puK0SiUvQ2zF4ISacTqJw8zML8pvUCZrIKwsePwk5RaImsoQbQc/yvUfOKquAG7iP1HngakuUINokszUFZqbteSsTZZyBogAbXrwGKzwkbtCNpYblHEVH3ydh/UwNK8sSrUl9tqXoa+gmxUnUp5YmUrUbBbETvk+q8gpWDvkSGOPPMBcw2GF/51nGQF8MzSf6xS29PFwG/On/8lhqLsuWW/B18Gftt5/M50FbHVxgshztBLyOlJatqWr78kdm9yyyWhLAGMXrw5GsWWuvxPksLVJAgAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/2WSy07DMBBFv6V719AiYJ0WgVgAVYF15domndb2RBmbKkT5d+y46QNWc+51ZjSPTPn0nl+PxJ7GUu3GBta8ffdC7li0Vq2ooBRe70XD26UmX1TA5l/uDAspMTjPHnRlsLE6YnTPVKxW6uRliKkYaqlngk7iUDPzi/YbVMkaCEsHHj9J1wtEQ0WIdg0/uu4bOKqOgbCxTzS5YIoLNCCbJDN1zAi7VoK3ydK1BSJAlz54DE76yB1TjRMWVVzFh1jnYj0MySuHSm+Jv/ZhyGN0sxJE2hMvUoiat7Mgd9r3w2ZMxTJ1TObBeDuMlh6PPMDcwGGr/51nFQF8MySf6zR/4eMtN/ZP/lONoeq6ZL0FXwV/OkTfeboUuPLiKpHn6BTkDaUF8C1dfU/u+OSWT0ZbAhjX8UcAq/kyx1/ElifAXAIAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "Space-finder/CDKMetadata/Default"
@@ -1759,6 +1817,11 @@
   "IdentityPoolId": {
    "Value": {
     "Ref": "SpaceFinderIdentityPool"
+   }
+  },
+  "spacesphotosbucketname": {
+   "Value": {
+    "Ref": "spacesphotos2389D37E"
    }
   }
  },

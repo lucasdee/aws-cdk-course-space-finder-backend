@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1993f4681a8656653e6e0c4bac151dd4f8a26b77e813949587c239033cbd3d85.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/aba3b5169fb2cc356ea97e8d0acaee7b61ad1957a5176b3522bbffb0a180be11.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -340,6 +340,18 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "admins"
+          }
+        ],
+        "/Space-finder/spaces-photos/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "spacesphotos2389D37E"
+          }
+        ],
+        "/Space-finder/spaces-photos-bucket-name": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "spacesphotosbucketname"
           }
         ],
         "/Space-finder/helloLambdaNodeJs/ServiceRole/Resource": [
