@@ -23,7 +23,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/aba3b5169fb2cc356ea97e8d0acaee7b61ad1957a5176b3522bbffb0a180be11.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/68cf7de87e92b1f2b9ea1f79c82ea543ed4631656db8d761eb31fe4ee8fb0787.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -61,7 +61,7 @@
         "/Space-finder/SpaceApi/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SpaceApiDeploymentA2B9E765a11a2c1014c7193b7f71cc3c9b9c85e2"
+            "data": "SpaceApiDeploymentA2B9E765b7fd7b212beda5d7cc05c4f0765261ac"
           }
         ],
         "/Space-finder/SpaceApi/DeploymentStage.prod/Resource": [
@@ -74,30 +74,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "SpaceApiEndpointDA7E4050"
-          }
-        ],
-        "/Space-finder/SpaceApi/Default/hello/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SpaceApihelloDF776653"
-          }
-        ],
-        "/Space-finder/SpaceApi/Default/hello/GET/ApiPermission.SpacefinderSpaceApi0274A94D.GET..hello": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SpaceApihelloGETApiPermissionSpacefinderSpaceApi0274A94DGEThelloF2551934"
-          }
-        ],
-        "/Space-finder/SpaceApi/Default/hello/GET/ApiPermission.Test.SpacefinderSpaceApi0274A94D.GET..hello": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SpaceApihelloGETApiPermissionTestSpacefinderSpaceApi0274A94DGEThelloEC2F16E7"
-          }
-        ],
-        "/Space-finder/SpaceApi/Default/hello/GET/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "SpaceApihelloGET65983C27"
           }
         ],
         "/Space-finder/SpaceApi/Default/spaces/Resource": [
@@ -264,6 +240,18 @@
             "data": "SpacesTableDeleteD71428D7"
           }
         ],
+        "/Space-finder/spaces-photos/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "spacesphotos2389D37E"
+          }
+        ],
+        "/Space-finder/spaces-photos-bucket-name": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "spacesphotosbucketname"
+          }
+        ],
         "/Space-finder/SpaceUserPool/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -340,36 +328,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "admins"
-          }
-        ],
-        "/Space-finder/spaces-photos/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "spacesphotos2389D37E"
-          }
-        ],
-        "/Space-finder/spaces-photos-bucket-name": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "spacesphotosbucketname"
-          }
-        ],
-        "/Space-finder/helloLambdaNodeJs/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "helloLambdaNodeJsServiceRole17C143C3"
-          }
-        ],
-        "/Space-finder/helloLambdaNodeJs/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "helloLambdaNodeJsServiceRoleDefaultPolicy14D90D8C"
-          }
-        ],
-        "/Space-finder/helloLambdaNodeJs/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "helloLambdaNodeJs14E63891"
           }
         ],
         "/Space-finder/CDKMetadata/Default": [
