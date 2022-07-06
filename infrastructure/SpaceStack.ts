@@ -1,14 +1,13 @@
 import { CfnOutput, Fn, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { AuthorizationType, LambdaIntegration, MethodOptions, RestApi } from 'aws-cdk-lib/aws-apigateway';
-import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-import { PolicyStatement } from 'aws-cdk-lib/aws-iam';
+import { Cors, ResourceOptions, RestApi } from 'aws-cdk-lib/aws-apigateway';
 
-import { join } from 'path';
 import { GenericTable } from './GenericTable';
 
 import { AuthorizerWrapper } from './auth/AuthorizerWrapper';
 import { Bucket, HttpMethods } from 'aws-cdk-lib/aws-s3';
+
+import { WebAppDeployment } from './WebAppDeployment';
 
 export class SpaceStack extends Stack {
   private api = new RestApi(this, 'SpaceApi');
@@ -33,8 +32,17 @@ export class SpaceStack extends Stack {
     this.initializeSpacesPhotoBucket();
     this.authorizer = new AuthorizerWrapper(this, this.api, this.spacesPhotoBucket.bucketArn + '/*');
 
+    new WebAppDeployment(this, this.suffix);
+
+    const optionsWithCors: ResourceOptions = {
+      defaultCorsPreflightOptions: {
+        allowOrigins: Cors.ALL_ORIGINS,
+        allowMethods: Cors.ALL_METHODS,
+      },
+    };
+
     // Spaces API integration
-    const spaceResource = this.api.root.addResource('spaces');
+    const spaceResource = this.api.root.addResource('spaces', optionsWithCors);
     spaceResource.addMethod('POST', this.spacesTable.createLambdaIntegration);
     spaceResource.addMethod('GET', this.spacesTable.readLambdaIntegration);
     spaceResource.addMethod('PUT', this.spacesTable.updateLambdaIntegration);
